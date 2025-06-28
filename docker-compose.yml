@@ -1,39 +1,35 @@
 version: '3.8'
 
 services:
-  # NestJS Application Service
   app:
     build:
-      context: . # Refers to the directory containing your Dockerfile
+      context: .
       dockerfile: Dockerfile
     ports:
-      - '3000:3000' # Map host port 3000 to container port 3000
+      - '3000:3000'
     depends_on:
       - redis
       - mongodb
     environment:
-      # Environment variables for your NestJS app to connect to Redis and MongoDB
       PORT: 3000
       REDIS_HOST: localhost
       REDIS_PORT: 6379
-      MONGO_URI: mongodb://mongodb:27017/pokeminho # Replace 'your_database_name'
+      MONGO_URI: mongodb://mongodb:27017/pokeminho
     volumes:
-      - .:/app # Mount your local project directory into the container (useful for development)
-      - /app/node_modules # Exclude node_modules from the mount to prevent issues
+      - .:/app
+      - /app/node_modules
 
-  # Redis Service
   redis:
-    image: redis:7-alpine # Use a lightweight Redis image
+    image: redis:7-alpine
     ports:
-      - '6379:6379' # Optional: map Redis port to host if you need to access it externally
+      - '6379:6379'
 
-  # MongoDB Service
   mongodb:
-    image: mongo:6 # Use a specific MongoDB version
+    image: mongo:6
     ports:
-      - '27017:27017' # Optional: map MongoDB port to host if you need to access it externally
+      - '27017:27017'
     volumes:
-      - mongodb_data:/data/db # Persist MongoDB data to a named volume
+      - mongodb_data:/data/db
 
 volumes:
-  mongodb_data: # Define the named volume for MongoDB data persistence
+  mongodb_data:
