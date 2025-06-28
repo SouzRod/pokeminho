@@ -25,7 +25,12 @@ import { Pokemon } from './domain/entities';
       isGlobal: true,
     }),
     MongooseModule.forRoot(process.env.MONGO_URI as string),
-    MongooseModule.forFeature([{ name: 'Pokemon', schema: PokemonSchema }]),
+    MongooseModule.forFeature([
+      {
+        name: 'Pokemon',
+        schema: PokemonSchema,
+      },
+    ]),
     HttpModule.registerAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
@@ -89,4 +94,4 @@ import { Pokemon } from './domain/entities';
     },
   ],
 })
-export class AppModule { }
+export class AppModule {}

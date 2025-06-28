@@ -1,4 +1,4 @@
-import { PokemonRepository } from "src/domain/repositories";
+import { PokemonRepository } from 'src/domain/repositories';
 
 export class GetFavoriteListUseCase {
   constructor(private readonly repository: PokemonRepository) {}

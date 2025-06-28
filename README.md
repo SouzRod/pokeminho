@@ -56,12 +56,12 @@ API RESTful em NestJS seguindo Clean Architecture, integração com PokeAPI, Mon
 
 ## Tabela de Rotas
 
-| Método | Rota                  | Descrição                        |
-|--------|-----------------------|----------------------------------|
-| GET    | /pokemon/list         | Lista pokémons (paginação/cache) |
-| GET    | /pokemon/favorites    | Lista favoritos                  |
-| POST   | /pokemon/favorite     | Adiciona favorito                |
-| DELETE | /pokemon/favorite     | Remove favorito                  |
+| Método | Rota               | Descrição                        |
+| ------ | ------------------ | -------------------------------- |
+| GET    | /pokemon/list      | Lista pokémons (paginação/cache) |
+| GET    | /pokemon/favorites | Lista favoritos                  |
+| POST   | /pokemon/favorite  | Adiciona favorito                |
+| DELETE | /pokemon/favorite  | Remove favorito                  |
 
 ---
 
@@ -118,11 +118,11 @@ Acesse: [http://localhost:3000/pokemon/list](http://localhost:3000/pokemon/list)
 
 ## Testes
 
-- **Unitários e integração:**  
+- **Unitários e integração:**
   ```bash
   npm run test
   ```
-- **Cobertura:**  
+- **Cobertura:**
   ```bash
   npm run test -- --coverage
   ```
@@ -134,7 +134,7 @@ Acesse: [http://localhost:3000/pokemon/list](http://localhost:3000/pokemon/list)
 ## Cobertura de Testes
 
 - Cobertura atual: **100%** (statements, branches, functions, lines)
-- Gere o relatório com:  
+- Gere o relatório com:
   ```bash
   npm run test -- --coverage
   ```

@@ -9,18 +9,22 @@ import { PokemonRepository } from 'src/domain/repositories';
 export class PokemonMongoRepository implements PokemonRepository {
   constructor(
     @InjectModel('Pokemon')
-    private readonly pokemonModel: Model<Pokemon>
-  ) { }
+    private readonly pokemonModel: Model<Pokemon>,
+  ) {}
 
   async findAll(): Promise<Pokemon[]> {
     const pokemons = await this.pokemonModel.find().exec();
-    return pokemons.map(pokemon => {
+    return pokemons.map((pokemon) => {
       return new Pokemon(pokemon);
     });
   }
 
   async findById(id: number): Promise<Pokemon | null> {
-    const pokemon = await this.pokemonModel.findOne({ id }).exec();
+    const pokemon = await this.pokemonModel
+      .findOne({
+        id,
+      })
+      .exec();
     return pokemon ? new Pokemon(pokemon) : null;
   }
 
@@ -29,6 +33,10 @@ export class PokemonMongoRepository implements PokemonRepository {
   }
 
   async deleteById(id: number): Promise<void> {
-    await this.pokemonModel.deleteOne({ id }).exec();
+    await this.pokemonModel
+      .deleteOne({
+        id,
+      })
+      .exec();
   }
 }

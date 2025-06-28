@@ -1,7 +1,9 @@
 import { DeleteFavoriteUseCase } from '../delete-favorite.usecase';
 
 describe('DeleteFavoriteUseCase', () => {
-  const mockRepo = { deleteById: jest.fn() };
+  const mockRepo = {
+    deleteById: jest.fn(),
+  };
   const useCase = new DeleteFavoriteUseCase(mockRepo as any);
 
   beforeEach(() => {

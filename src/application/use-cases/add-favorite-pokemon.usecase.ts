@@ -1,11 +1,10 @@
-import { Pokemon } from "src/domain/entities";
-import { PokemonApiRepository, PokemonRepository } from "src/domain/repositories";
-
+import { Pokemon } from 'src/domain/entities';
+import { PokemonApiRepository, PokemonRepository } from 'src/domain/repositories';
 
 export class AddFavoritePokemonUseCase {
   constructor(
     private readonly repository: PokemonRepository,
-    private readonly apiRepository: PokemonApiRepository
+    private readonly apiRepository: PokemonApiRepository,
   ) {}
 
   async execute(id: string) {

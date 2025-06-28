@@ -13,7 +13,12 @@ describe('PokemonController (integration)', () => {
     }).compile();
 
     app = moduleFixture.createNestApplication();
-    app.useGlobalPipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }));
+    app.useGlobalPipes(
+      new ValidationPipe({
+        whitelist: true,
+        forbidNonWhitelisted: true,
+      }),
+    );
     await app.init();
   });
 
@@ -22,9 +27,7 @@ describe('PokemonController (integration)', () => {
   });
 
   it('/pokemon/list (GET) deve retornar lista paginada', async () => {
-    const res = await request(app.getHttpServer())
-      .get('/pokemon/list?offset=0&limit=2')
-      .expect(200);
+    const res = await request(app.getHttpServer()).get('/pokemon/list?offset=0&limit=2').expect(200);
     expect(Array.isArray(res.body)).toBe(true);
     expect(res.body.length).toBeGreaterThan(0);
     expect(res.body[0]).toHaveProperty('id');
@@ -32,24 +35,18 @@ describe('PokemonController (integration)', () => {
   });
 
   it('/pokemon/favorites (GET) deve retornar array', async () => {
-    const res = await request(app.getHttpServer())
-      .get('/pokemon/favorites')
-      .expect(200);
+    const res = await request(app.getHttpServer()).get('/pokemon/favorites').expect(200);
     expect(Array.isArray(res.body)).toBe(true);
   });
 
   it('/pokemon/favorite (POST) deve adicionar favorito', async () => {
-    const res = await request(app.getHttpServer())
-      .post('/pokemon/favorite?id=1')
-      .expect(201);
+    const res = await request(app.getHttpServer()).post('/pokemon/favorite?id=1').expect(201);
     expect(res.body).toHaveProperty('id', 1);
     expect(res.body).toHaveProperty('name');
   });
 
   it('/pokemon/favorite (DELETE) deve remover favorito', async () => {
-    const res = await request(app.getHttpServer())
-      .delete('/pokemon/favorite?id=1')
-      .expect(200);
+    const res = await request(app.getHttpServer()).delete('/pokemon/favorite?id=1').expect(200);
     expect(res.body).toHaveProperty('message');
   });
 });

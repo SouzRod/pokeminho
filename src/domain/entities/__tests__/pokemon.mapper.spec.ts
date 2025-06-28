@@ -6,8 +6,16 @@ describe('PokemonMapper', () => {
       id: 1,
       name: 'bulbasaur',
       types: [
-        { type: { name: 'grass' } },
-        { type: { name: 'poison' } },
+        {
+          type: {
+            name: 'grass',
+          },
+        },
+        {
+          type: {
+            name: 'poison',
+          },
+        },
       ],
       weight: 69,
     };
@@ -19,7 +27,10 @@ describe('PokemonMapper', () => {
   });
 
   it('should handle missing types and weight', () => {
-    const apiData = { id: 2, name: 'ivysaur' };
+    const apiData = {
+      id: 2,
+      name: 'ivysaur',
+    };
     const pokemon = PokemonMapper.fromPokeApi(apiData);
     expect(pokemon.types).toEqual([]);
     expect(pokemon.weight).toBe(0);

@@ -5,7 +5,7 @@ export class GetPokemonListUseCase {
   constructor(
     private readonly repository: PokemonApiRepository,
     private readonly cache: CacheRepository,
-  ) { }
+  ) {}
 
   async execute(offset: string, limit: string): Promise<Pokemon[]> {
     const cacheKey = `pokemon_list_${offset}_${limit}`;

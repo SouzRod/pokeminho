@@ -6,7 +6,12 @@ export class RedisService {
   private readonly client: Redis;
 
   constructor(options?: RedisOptions) {
-    this.client = new Redis(options || { host: 'localhost', port: 6379 });
+    this.client = new Redis(
+      options || {
+        host: 'localhost',
+        port: 6379,
+      },
+    );
   }
 
   async get(key: string): Promise<string | null> {

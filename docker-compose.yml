@@ -7,7 +7,7 @@ services:
       context: . # Refers to the directory containing your Dockerfile
       dockerfile: Dockerfile
     ports:
-      - "3000:3000" # Map host port 3000 to container port 3000
+      - '3000:3000' # Map host port 3000 to container port 3000
     depends_on:
       - redis
       - mongodb
@@ -25,13 +25,13 @@ services:
   redis:
     image: redis:7-alpine # Use a lightweight Redis image
     ports:
-      - "6379:6379" # Optional: map Redis port to host if you need to access it externally
+      - '6379:6379' # Optional: map Redis port to host if you need to access it externally
 
   # MongoDB Service
   mongodb:
     image: mongo:6 # Use a specific MongoDB version
     ports:
-      - "27017:27017" # Optional: map MongoDB port to host if you need to access it externally
+      - '27017:27017' # Optional: map MongoDB port to host if you need to access it externally
     volumes:
       - mongodb_data:/data/db # Persist MongoDB data to a named volume
 

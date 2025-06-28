@@ -10,7 +10,12 @@ describe('Pokemon Entity', () => {
   });
 
   it('should create a Pokemon with provided values', () => {
-    const pokemon = new Pokemon({ id: 25, name: 'pikachu', types: ['electric'], weight: 60 });
+    const pokemon = new Pokemon({
+      id: 25,
+      name: 'pikachu',
+      types: ['electric'],
+      weight: 60,
+    });
     expect(pokemon.id).toBe(25);
     expect(pokemon.name).toBe('pikachu');
     expect(pokemon.types).toEqual(['electric']);
