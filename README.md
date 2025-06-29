@@ -160,12 +160,6 @@ Acesse: [http://localhost:3000/pokemon/list](http://localhost:3000/pokemon/list)
 
 ---
 
-## Contato
-
-Dúvidas ou sugestões? Abra uma issue ou envie um e-mail para [seu-email@dominio.com].
-
----
-
 ## Licença
 
 MIT
